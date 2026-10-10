@@ -4,55 +4,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+
+    <title>My Portfolio</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            text-align: center;
+        /* Basic settings */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        header {
-            background-color: #2563eb;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fafafa;
+            color: #222222;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        /* Navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #777777;
+        }
+
+        /* Home section */
+        .hero {
+            min-height: 430px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 80px 0;
+        }
+
+        .tag {
+            color: #666666;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 64px);
+            line-height: 1.15;
+            letter-spacing: -2px;
+            max-width: 750px;
+        }
+
+        .hero h1 span {
+            color: #777777;
+        }
+
+        .hero p {
+            max-width: 580px;
+            color: #666666;
+            margin: 22px 0;
+        }
+
+        .button {
+            display: inline-block;
+            background: #222222;
             color: white;
-            padding: 30px;
+            padding: 11px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background 0.2s;
         }
 
-        main {
-            padding: 50px 20px;
+        .button:hover {
+            background: #555555;
         }
 
-        button {
-            background-color: #2563eb;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
+        /* General sections */
+        section {
+            padding: 65px 0;
+            border-top: 1px solid #e5e5e5;
         }
 
-        button:hover {
-            background-color: #1d4ed8;
+        .section-label {
+            color: #777777;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin: 8px 0 28px;
+        }
+
+        .about-text {
+            max-width: 720px;
+            color: #555555;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            border: 1px solid #dddddd;
+            border-radius: 30px;
+            padding: 8px 17px;
+            font-size: 14px;
+            background: white;
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px #00000008;
+        }
+
+        .project-number {
+            color: #888888;
+            font-size: 13px;
+        }
+
+        .project-card h3 {
+            margin: 12px 0 8px;
+            font-size: 20px;
+        }
+
+        .project-card p {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .project-type {
+            display: inline-block;
+            margin-top: 18px;
+            color: #555555;
+            background: #f0f0f0;
+            border-radius: 4px;
+            padding: 4px 9px;
+            font-size: 12px;
+        }
+
+        /* Contact */
+        .contact-text {
+            color: #666666;
+            margin-bottom: 22px;
+        }
+
+        footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 25px 0;
+            color: #888888;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 600px) {
+            nav {
+                align-items: flex-start;
+                gap: 15px;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                min-height: 360px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 45px 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-        <p>This is my first website using GitHub Pages!</p>
-    </header>
 
-    <main>
-        <h2>About Me</h2>
-        <p>Hello! I am learning how to create websites.</p>
+    <div class="container">
 
-        <button onclick="alert('Hello! Thanks for visiting!')">
-            Click Me
-        </button>
-    </main>
+        <!-- Navigation -->
+        <nav>
+            <a href="#home" class="logo">MyPortfolio.</a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Home -->
+        <header class="hero" id="home">
+            <div class="tag">Personal Portfolio</div>
+
+            <h1>Hello, I'm <span>Your Name.</span></h1>
+
+            <p>
+                I'm a university student passionate about technology,
+                programming, and creating meaningful digital experiences.
+                Welcome to my personal portfolio.
+            </p>
+
+            <a href="#projects" class="button">Explore My Work ↘</a>
+        </header>
+
+        <!-- About -->
+        <section id="about">
+            <div class="section-label">01 / About Me</div>
+            <h2 class="section-title">A little about me.</h2>
+
+            <p class="about-text">
+                I am a student who enjoys learning new technologies
+                and solving problems through creativity and programming.
+                I am always looking for opportunities to improve my
+                skills, explore new ideas, and work on meaningful projects.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-label">02 / Skills</div>
+            <h2 class="section-title">What I work with.</h2>
+
+            <div class="skills">
+                <span class="skill">C++</span>
+                <span class="skill">HTML & CSS</span>
+                <span class="skill">MySQL</span>
+                <span class="skill">UI/UX Design</span>
+                <span class="skill">Problem Solving</span>
+                <span class="skill">Teamwork</span>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-label">03 / Selected Work</div>
+            <h2 class="section-title">My projects.</h2>
+
+            <div class="projects">
+
+                <article class="project-card">
+                    <div class="project-number">PROJECT 01</div>
+                    <h3>Mini Mart Stock Management</h3>
+                    <p>
+                        A C++ application for managing stock information,
+                        monitoring stock age, and calculating budgets.
+                    </p>
+                    <span class="project-type">C++ / MySQL</span>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">PROJECT 02</div>
+                    <h3>Extended Reality Project</h3>
+                    <p>
+                        An interactive XR project focused on user
+                        experience, creative design, and technology.
+                    </p>
+                    <span class="project-type">XR / UI/UX</span>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">PROJECT 03</div>
+                    <h3>My First Website</h3>
+                    <p>
+                        A personal website created to practise web
+                        development and responsive design.
+                    </p>
+                    <span class="project-type">HTML / CSS</span>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">PROJECT 04</div>
+                    <h3>Future Project</h3>
+                    <p>
+                        A space for another project you would like
+                        to showcase in your portfolio.
+                    </p>
+                    <span class="project-type">In Progress</span>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-label">04 / Contact</div>
+            <h2 class="section-title">Let's connect.</h2>
+
+            <p class="contact-text">
+                Interested in my work or want to collaborate?
+                Feel free to contact me.
+            </p>
+
+            <a class="button"
+               href="mailto:your-email@example.com">
+                Email Me ↗
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            © 2026 Your Name. Designed and built with HTML & CSS.
+        </footer>
+
+    </div>
+
 </body>
 </html>
